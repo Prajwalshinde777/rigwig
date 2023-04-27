@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Exp4',
+      theme: ThemeData(
+
+        primarySwatch: Colors.deepOrange,
+      ),
+      home: const MyHomePage(title: 'Exp4 Flutter Layouts'),
+    );
+  }
+}
+
+
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+
+        title: Text(widget.title),
+      ),
+      body: Column(
+       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+    margin: EdgeInsets.all(20),
+    padding: EdgeInsets.all(12),
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(8),
+    color: Colors.deepOrangeAccent
+    ),
+    child: Text('GridView is a widget in Flutter that displays the items in a 2-D array (two-dimensional rows and columns) ',style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),),
+
+
+      ),
+          Container(
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.deepOrangeAccent
+            ),
+            child: Text('GridView is a widget in Flutter that displays the items in a 2-D array (two-dimensional rows and columns) ',style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),),
+
+
+          ),
+    Row(
+    children: [
+      ElevatedButton.icon(onPressed: (){
+
+        showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: const Text("You have clicked phone button" ),
+          ),
+
+        );
+      },
+          icon: Icon(Icons.phone),
+          label: Text('Phone')),
+      SizedBox(width: 20,height: 100,),
+
+          ElevatedButton.icon(onPressed: (){
+            showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("You have clicked message button"),
+              ),
+
+            );
+          },
+              icon: Icon(Icons.message),
+              label: Text('Message')),
+          SizedBox(width: 20,),
+
+      ElevatedButton.icon(onPressed: (){
+        showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: const Text("You have clicked back button"),
+          ),
+
+        );
+      },
+          icon: Icon(Icons.arrow_back_ios),
+          label: Text('')),
+      SizedBox(width: 20,),
+]
+    ),
+          ElevatedButton.icon(onPressed: (){
+            showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("You have clicked back button"),
+              ),
+
+            );
+          },
+              icon: Icon(Icons.arrow_back_ios),
+              label: Text('Back')),
+          SizedBox(width: 20,),
+
+
+
+        ]
+        // This trailing comma makes auto-formatting nicer for build methods.
+    )
+    );
+  }
+}
